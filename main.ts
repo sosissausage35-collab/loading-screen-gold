@@ -132,6 +132,10 @@ function validateGate(text: string): void {
 }
 
 function main(): void {
+  // Every candidate must pass the gate before it can be considered: a
+  // line that violates the gate must never be able to win the scoring.
+  for (const c of CANDIDATES) validateGate(c.text);
+
   const winner = pickWinner();
   validateGate(winner.text);
 
